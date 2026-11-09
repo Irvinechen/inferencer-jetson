@@ -1,1 +1,3 @@
+chmod +x build_inferencer.sh
+./build_inference.sh
 ./inferencer --stats --model path.gguf --prompts-file prompts.txt
