@@ -1,12 +1,15 @@
 chmod +x build_inferencer.sh
 ./build_inference.sh
-./inferencer --stats --model path.gguf --prompts-file prompts.txt
+./inferencer --stats --model llama3.2-3b.gguf --prompts-file prompts.txt
 
 
-# you can extract the llama3.2-3b.gguf from ollama
+# you can install ollama to download llama3.2-3b
+# you can then extract the llama3.2-3b.gguf from ollama using the following scripts
 mkdir -p ~/exported-models
 
 MODEL_PATH=$(ollama show llama3.2:3b --modelfile | awk '$1=="FROM" {print $2; exit}')
 
 sudo cp "$MODEL_PATH" ~/exported-models/llama3.2-3b.gguf
 sudo chown "$USER:$USER" ~/exported-models/llama3.2-3b.gguf
+
+# You then move the llama3.2-3b.gguf from exported-models/ to your current folder
